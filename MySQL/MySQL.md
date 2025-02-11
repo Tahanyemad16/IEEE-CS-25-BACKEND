@@ -94,6 +94,63 @@ Throughout the years, developers have used different case types to name differen
 
  ---
 
+ ## 8. primary keys vs unique keys.
+ **primary key** is a column of a table that uniquely identifies each tuple (row) in that table. The primary key enforces integrity constraints to the table. Only one primary key is allowed to be used in a table. The primary key does not accept any duplicate and NULL values. The primary key value in a table changes very rarely so it is chosen with care where the changes can occur rarely. A primary key of one table can be referenced by the foreign key of another table. 
+
+ **Unique Key** constraints also identify an individual tuple uniquely in a relation or table. A table can have more than one unique key,unlike a primary key. Unique key constraints can accept only one NULL value for the column. Unique constraints are also referenced by the foreign key of another table. It can be used when someone wants to enforce unique constraints on a column and a group of columns which is not a primary key. 
+
+ [Reference](https://www.geeksforgeeks.org/difference-between-primary-key-and-unique-key/)
+
+ ---
+
+ ## 9.constraints in MySQL.
+ SQL constraints are used to specify rules for the data in a table.
+
+ Constraints are used to limit the type of data that can go into a table. This ensures the accuracy and reliability of the data in the table. If there is any violation between the constraint and the data action, the action is aborted.
+
+ Constraints can be column level or table level. Column level constraints apply to a column, and table level constraints apply to the whole table.
+
+ The following constraints are commonly used in SQL:
+ - NOT NULL - Ensures that a column cannot have a NULL value
+ - UNIQUE - Ensures that all values in a column are different
+ - PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+ - FOREIGN KEY - Prevents actions that would destroy links between tables
+ - CHECK - Ensures that the values in a column satisfies a specific condition
+ - DEFAULT - Sets a default value for a column if no value is specified
+ - CREATE INDEX - Used to create and retrieve data from the database very quickly
+
+ [Reference](https://www.w3schools.com/mysql/mysql_constraints.asp)
+
+ ---
+
+ ## 10.indexing in MySQL.
+ A **MySQL index** is a data structure that improves the speed of data retrieval operations on a database table. Similar to an index in a book that helps you quickly find specific information without having to read through the entire book, a MySQL index allows the database to locate and access rows in a table much faster than it could without an index.
+ 
+ Types of MySQL Indexes:
+
+ MySQL supports a variety of indexes so that they can perform different functions in the event of different use cases. Understanding these types will help you choose the right index for any of your database needs.
+
+ - Primary Index
+ - Unique Index
+ - Full-Text Index
+ - Composite Index
+ - Spatial Index
+
+ [Reference](https://www.geeksforgeeks.org/mysql-indexes/)
+
+ ---
+
+ ## 11.Difference between MySQL and Postgresql
+ MySQL and PostgreSQL are both popular open-source relational database management systems (RDBMS), but they have distinct features and design structures:
+
+ **MySQL**: It is known for its speed and reliability, MySQL is widely used in web applications and is a preferred choice for read-heavy operations. MySQL is known for being user-friendly and relatively simple to set up.
+
+ **PostgreSQL**: It is referred to as “Postgres,” PostgreSQL is known for its advanced features, extensibility and compliance with SQL standards. It offers robust support for complex queries, transactions, and data integrity. PostgreSQL is a good choice for applications requiring complex queries and transactions.
+
+[Reference](https://www.geeksforgeeks.org/difference-between-mysql-and-postgresql/)
+
+---
+
 
 
 
