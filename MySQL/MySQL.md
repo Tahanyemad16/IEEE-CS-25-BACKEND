@@ -152,5 +152,59 @@ Throughout the years, developers have used different case types to name differen
 ---
 
 
+## 12.Relations (one to one, one to many, many to many).
+Relationships in SQL refer to the associations or connections between tables in a relational database. These relationships are established using foreign keys, which are columns in a table that refer to the primary key in another table. Relationships help organize and structure data, allowing for efficient data retrieval and maintaining data integrity.
+
+There are different types of relationships: one-to-one, one-to-many, many-to-many
+
+   1. One-to-One Relationship
+
+      Definition: Each record in Table A is associated with one and only one record in Table B, and vice versa.
+
+      Setup: Include a foreign key in one of the tables that references the primary key of the other table.
+   
+   2. One-to-Many Relationship
+
+      Definition: Each record in Table A can be associated with multiple records in Table B, but each record in Table B is associated with only one record in Table A.
+
+      Setup: Include a foreign key in the "many" side table (Table B) that references the primary key of the "one" side table (Table A).
+
+   3. Many-to-Many Relationship 
+
+      Definition: Each record in Table A can be associated with multiple records in Table B, and vice versa.
+      
+      Setup: Create an intermediate table (also known as a junction or linking table) that contains foreign keys referencing both related tables.
+
+[Reference](https://www.geeksforgeeks.org/relationships-in-sql-one-to-one-one-to-many-many-to-many/)
+
+---
+
+## 13.Write-ahead logging.
+
+   **Write-Ahead Logging (WAL)** is a standard technique in databases to ensure data integrity and durability. The core idea is simple: before any changes are applied to the actual database, the changes are first written to a log. This guarantees that even if a system crash occurs, the database can be recovered by replaying the log.
+
+   The concept of WAL evolved from early research on transaction processing and recovery mechanisms, particularly in IBM's System R project—one of the first relational database systems developed in the mid-1970s. System R introduced many core ideas behind modern database architectures, including logging, checkpoints, and recovery techniques.
+
+[Reference](https://www.bytebase.com/blog/write-ahead-logging/)
+
+---
+
+## 14.What are normalization and denormalization? Explain their differences.
+
+  **Normalization** and **Denormalization** are used to alter the structure of a database. The main difference between normalization and denormalization is that normalization is used to remove the redundancy in the table, while denormalization is used to add the redundancy which means combining multiple tables so that execute query quickly. In this article, we’ll explore the key differences between Normalization and Denormalization and how they impact database design.
+
+  - **Normalization**
+
+     Normalization is the method which is used to reduce the redundancy and data inconsistency in the table. It is important to avoid issues like update anomalies and makes easier to maintain the database.
+
+  - **Denormalization**   
+
+    Denormalization is the method which is used to add the redundancy so that execute the query quickly. It is used for decrease the number of tables so that execute the query quickly (like joins operation ).
+
+ [Reference](https://www.geeksforgeeks.org/difference-between-normalization-and-denormalization/)
+
+ ---
+
+
 
 
