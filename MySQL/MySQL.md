@@ -206,5 +206,47 @@ There are different types of relationships: one-to-one, one-to-many, many-to-man
  ---
 
 
+## 15.*Multi-Version Concurrency Control*
+- **Multi-Version Concurrency Control (MVCC)** is a database optimization method, that makes redundant copies of records to allow for safe concurrent reading and updating of data. 
+- **Multi-Version Concurrency Control** is a technology, utilized to enhance databases by resolving concurrency problems and also data locking by preserving older database versions.
+- Types of **MVCC**
+     1. Timestamp-based MVCC
+     2. Snapshot-based MVCC
+     3. History-based MVCC
+     4. Hybrid MVCC
 
+[Refernce](https://www.geeksforgeeks.org/what-is-multi-version-concurrency-control-mvcc-in-dbms/)<br>
+
+- - - - - -
+
+## 16. *SQL Trigger*
+- **SQL triggers** are a critical feature in DBMS that provide automatic execution of a set of SQL statements when specific database events, such as `INSERT`, `UPDATE`, or `DELETE` operations
+- a **Trigger** is a collection of *SQL* statements with particular names that are stored in system memory.
+- Types of SQL Triggers
+     1. The *Data Definition Language* (DDL) command events such as Create_table, Create_view, drop_table , Drop_view and Alter_table
+     2. The *Data manipulation Language* (DML) command events that begin with Insert , Update, and Delete set off the DML triggers.
+
+[Refernce](https://www.geeksforgeeks.org/sql-trigger-student-database/)<br>
+- - - - - -
+
+
+## 17. *SQL BACKUP DATABASE*
+- The `BACKUP DATABASE` statement is used in SQL Server to create a full back up of an existing SQL database.
+```SQL
+     BACKUP DATABASE  DatabaseName
+     TO DISK = 'file';
+```
+- A differential back up only backs up the parts of the database that have changed since the last full database backup.
+```SQL
+     BACKUP DATABASE DatabaseName
+	 TO DISK = 'File'  
+	 WITH DIFFERENTIAL;
+```
+
+
+[Refernce](https://www.w3schools.com/sql/sql_backup_db.asp)<br>
+
+
+
+- - - - - - - 
 
