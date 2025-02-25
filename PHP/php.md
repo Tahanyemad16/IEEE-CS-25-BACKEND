@@ -37,3 +37,12 @@ The differences are small: echo has no return value while print has a return val
 ---
 
 
+## 4.sensitivity in PHP.
+
+  PHP is a case-sensitive language, which means that variables, function names, and other identifiers are distinguished by their capitalization. This means that “hello” and “Hello” are considered different variables in PHP.
+
+  To avoid errors like this, it’s important to be consistent with your capitalization when naming variables, functions, and other identifiers in your PHP code.
+
+  However, there are some exceptions to PHP’s case sensitivity rules. For example, function and method names are not case-sensitive in PHP versions before 8.0.0, which means that you can call a function using different capitalization without producing an error. 
+
+  [Refernce](https://tutorialspoint.learnerstv.in/php-case-sensitivity/)
