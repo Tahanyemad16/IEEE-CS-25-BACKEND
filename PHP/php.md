@@ -46,3 +46,55 @@ The differences are small: echo has no return value while print has a return val
   However, there are some exceptions to PHP’s case sensitivity rules. For example, function and method names are not case-sensitive in PHP versions before 8.0.0, which means that you can call a function using different capitalization without producing an error. 
 
   [Refernce](https://tutorialspoint.learnerstv.in/php-case-sensitivity/)
+
+
+  ---
+
+## 5.programming language vs scripting language.
+
+  - **Programming language**
+
+    - One needs to compile the programming languages to machine code so as to run them on the hardware of an underlying OS (operating system). A user needs to deploy a certain Integrated Development Environment (IDE) for using programming languages. A programmer needs to provide an instruction set for the computers for achieving certain goals. One can also implement certain algorithms by writing the programs.
+    - Out of all the programming languages present in the market, specific documentation dominates a majority of them. All the other languages comprise dominant implementation (treated as a reference). An example here is that the ISO standard associates with the C programming language. On the other hand, languages like Perl belong to the latter category.
+    - One can use a programming language for transforming data. It basically happens when creating those CPU instructions that jot down the input info into the output. An example here is using a set of conditions for solving an equation set. One can consider various programming languages such as C, C++, Scala, Java, etc., as general-purpose languages. These fall under the compiled programming languages. You must add some texts to write the score code, and then you can run them through a compiler. As a result, it would create various binary instructions.
+
+  - **scripting language**
+   
+    - Scripting languages help in automating various software apps, web pages in a browser, shell usage of an OS (operating system), etc. The scripting languages like VBScript, Perl, Javascript, etc., do not require compilation, and they have less access to any computer’s native abilities. It is because these rather run on an original programming language’s subset. An example here could be that the Javascript won’t have the ability to access your file system.
+    - Generally, a scripting language is interpreted. It doesn’t primarily focus on building applications- but it can render behavior to an application that already exists. It basically helps in writing codes for targeting a software system. Thus, it can also automate a given operation on any software system. So basically, scripts act as a set of instructions that target any software system.
+    - The scripting languages have eventually evolved and become more powerful. They now no longer create minute scripts for automating a software system’s operations. One can also use scripting languages for building rich applications. These can customize, manipulate, and automate an existing system’s facilities. The scripting languages come 
+
+[Reference](https://byjus.com/gate/difference-between-scripting-and-programming-languages/)
+
+ ---
+
+ ## 6.dynamically typed vs statically typed language.
+
+ - **Static Typing**
+    - Static typing is a typing system where variables are bound to a data type during compilation. Once a variable is assigned a data  type it remains unchanged throughout the programs execution. This binding promotes type safety and detects errors at an early stage.
+    One of the advantages of typing is ensuring type safety which reduces the chances of runtime errors caused by mismatches in data types.
+
+ - **dynamic typing**
+    - dynamic typing allows variables to be bound to data types at runtime instead of during compilation. This flexibility enables concise code and ease of use. It compromises on type safety as a trade-off.
+    One of the advantages of typing is its flexibility. In dynamically typed languages variables have the ability to change their data type during runtime. This allows for adaptability in situations. 
+
+
+[Reference](https://www.bairesdev.com/blog/static-vs-dynamic-typing/)
+
+
+---
+
+## 7.Assign by Value VS Assign by Reference.
+  - **Assign by Value:**
+    - In this method value of the variable is passed. Changes made to formal will not affect the actual parameters.
+    - Different memory locations will be created for both variables.
+    - Here there will be a temporary variable created in the function stack that does not affect the original variable.
+  - **Assign By Reference:** 
+    - In Pass by reference address of the variable is passed to a function. Whatever changes made to the formal parameter will affect   the actual parameters:
+      - The same memory location is used for both variables. (Formal and Actual)
+      - It is useful when you are required to return more than 1 value.
+
+[Reference](https://community.dynamics.com/blogs/post/?postid=af0c5e11-7c2f-486b-8737-a9f613d75737)
+
+
+---
