@@ -1,10 +1,17 @@
 <?php
-function get_arguments() {
+
+function get_arguments1() {
     $all = implode(" ", func_get_args());
     return $all;
 }
 
-// Needed Output
-echo get_arguments("Hello", "Elzero", "Web", "School") . "<br>"; // Hello Elzero Web School
-echo get_arguments("I", "Love", "PHP"); // I Love PHP
+function get_arguments2(...$args) {
+    $all = implode(" ", $args);
+    return $all;
+}
+
+echo get_arguments1("Hello", "Elzero", "Web", "School") . "\n";
+echo get_arguments1("I", "Love", "PHP") . "\n";
+
+
 ?>

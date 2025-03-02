@@ -1,25 +1,24 @@
-//first method
+
 <?php
+
+//first method
 $a = "10";
 
-echo intval($a) . "\n"; 
-echo gettype(intval($a)) . "\n"; 
-?>
+echo (int)$a."<br>"; 
+echo var_dump((int)$a)."<br>"; 
+
 
 
 //second method
-<?php
-$a = "10";
 
-echo $a + 0 . "\n"; 
-echo gettype($a + 0) . "\n";
-?>
+
+echo $a + 0 ."<br>" ; 
+echo gettype($a + 0)."<br>" ;
 
 
 //third method
-<?php
-$a = "10";
 
-echo (int)$a . "\n"; 
-echo gettype((int)$a) . "\n";
+
+echo (int)$a."<br>"; 
+echo gettype((int)$a) ."<br>";
 ?>

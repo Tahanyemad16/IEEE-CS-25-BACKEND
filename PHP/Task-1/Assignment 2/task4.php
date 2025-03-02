@@ -4,9 +4,3 @@
 
 ?>
 
-// Needed Output
-We
-Love
-Elzero
-Web
-School

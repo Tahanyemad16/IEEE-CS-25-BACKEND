@@ -1,5 +1,7 @@
 <?php
-  echo 'Hello "\'"Elzero\'"\n"';
-  echo 'We Love $Programming$\n';
-  echo 'Languages Specially "PHP"';
+echo <<<'now'
+Hello "'Elzero'"
+We Love $Programming$
+Languages Specially "PHP"
+now;
 ?>

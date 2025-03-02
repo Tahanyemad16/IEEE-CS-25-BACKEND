@@ -24,7 +24,9 @@ if ($a + $b === $c) {
 }
 
 //second method
-echo ($a + $b === $c) ? "A + B = C" : ($a + $c === $b) ? "A + C = B" : ($b + $c === $a) ? "B + C = A" : "The End" ;
+echo ($a + $b === $c) ? "A + B = C" : 
+     (($a + $c === $b) ? "A + C = B" : 
+     (($b + $c === $a) ? "B + C = A" : "The End"));
 
 
 ?>
