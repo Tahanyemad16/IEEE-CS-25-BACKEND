@@ -98,3 +98,23 @@ The differences are small: echo has no return value while print has a return val
 
 
 ---
+
+## 8.What is the difference between for and foreach loop in PHP?
+
+ - **for loop**
+
+   The for loop works at the end of the given condition. It is used for the implementation of variables and works in a single way. The for loop does not work in the case of associative arrays. A for loop basically consists of three portions or parts. 
+
+    - A variable is initialized with a value.
+    - The variable is subjected to the condition to which it is compared.
+    - Increment/decrement loop counter.
+
+ - **foreach Loop**
+
+    The foreach loop works at the end of the array count. This loop can work with variables as well as associative arrays. Therefore, this loop can be implemented in more than one way. The foreach loop is much better and performs better in comparison to the for loop.   
+
+
+[Reference](https://www.geeksforgeeks.org/what-is-the-difference-between-for-and-foreach-loop-in-php/)
+
+---
+
