@@ -118,3 +118,37 @@ The differences are small: echo has no return value while print has a return val
 
 ---
 
+
+## 8.Sessions vs. Cookies.
+
+ - **Cookies** are small data stored on the client side (browser) as key-value pairs. They are commonly used for session management,    user preferences, and behaviour tracking. When a user loads a website, the browser sends the stored cookies with the request, allowing the server to track and personalize the user’s experience.
+
+ - **Sessions** in Express enable the server to maintain user-specific data across multiple requests by storing information server-side and associating it with a unique session identifier. This approach allows for persistent user interactions and state management within web applications.
+
+[Reference](https://www.geeksforgeeks.org/difference-between-session-and-cookies/)
+
+
+---
+
+
+## 9.Error Handling in PHP.
+
+  When creating scripts and web applications, error handling is an important part. If your code lacks error checking code, your program may look very unprofessional and you may be open to security risks.
+
+  - We will show different error handling methods:
+ 
+    - Simple "die()" statements
+    - Custom errors and error triggers
+    - Error reporting
+
+
+[Reference](https://www.w3schools.com/PHP/php_error.asp)
+
+
+---
+
+## 10.How PHP Executes Code.
+  In PHP, code execution is linear, and the compiling is carried out as well as the executing in cycles per line of a script. Yet, to enhance this flow, PHP uses caching such as opcode caching, which is the set of compiled byte codes that are necessary to run the matter faster in following requests.
+
+[Reference](https://medium.com/@shivanisingh16012004/understanding-php-internals-how-php-executes-code-41576dbc4a7f)  
+
