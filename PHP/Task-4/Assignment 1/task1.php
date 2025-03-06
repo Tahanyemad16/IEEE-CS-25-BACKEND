@@ -1,5 +1,5 @@
 <?php
-    $drives = ["C:","D:","E:"];
+    $drives = ["C:","H:","E:"];
     $space = 0;
     foreach($drives as $driver){
         $space += disk_total_space($driver);
