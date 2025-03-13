@@ -118,3 +118,91 @@ $SubClass->message();
 [Reference](https://www.php.net/manual/en/language.oop5.traits.php)
 
 ---
+
+## 6.Late static binding & how it works
+
+   programs are saved and then directly run on the browser, the script is executed through a web server and we get the output. We don’t compile PHP programs manually but that does not mean it is never compiled. The PHP interpreter does that for you and runs it. So there are two phases, first, compile-time and second run time. During the compile time, the normal variables are replaced with their values but the static keywords are replaced only in the run time. Overriding a property in child class and creating the instance of the child class, so to get the overridden output, the late static binding concept is used by writing static keyword before using the property. Whenever a PHP interpreter gets the request to compile a function. If it sees any static property, then it leaves the property pending for run time and the property gets its value during runtime from the function it is being called. This is called late static binding.
+
+[Reference](https://www.geeksforgeeks.org/what-is-late-static-bindings-in-php/)
+
+---
+
+## 7.Using OOP with MySQL (PDO & MySQLi)
+
+ - Both MySQLi and PDO have their advantages:
+
+   PDO will work on 12 different database systems, whereas MySQLi will only work with MySQL databases.
+
+   So, if you have to switch your project to use another database, PDO makes the process easy. You only have to change the connection string and a few queries. With MySQLi, you will need to rewrite the entire code - queries included.
+
+- Both are object-oriented, but MySQLi also offers a procedural API.
+
+- Both support Prepared Statements. Prepared Statements protect from SQL injection, and are very important for web application security.
+
+  **Example (MySQLi Object-Oriented)**
+  ```php
+  <?php
+   $servername = "localhost";
+   $username = "username"; 
+   $password = "password";
+
+   // Create connection
+   $conn = new mysqli($servername, $username, $password);
+
+    // Check connection
+   if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+   }
+   echo "Connected successfully";
+  ?>
+  ```
+
+  **Example (PDO)**
+  ```php
+   <?php
+    $servername = "localhost";
+    $username = "username";
+    $password = "password";
+
+    try {
+    $conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected successfully";
+    } catch(PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+   }
+  ?>
+
+---
+## 8.Factory PatternAnonymous Classes
+Factory method is a creational design pattern which solves the problem of creating product objects without specifying their concrete classes.
+
+The Factory Method defines a method, which should be used for creating objects instead of using a direct constructor call (new operator). Subclasses can override this method to change the class of objects that will be created.
+
+[Reference](https://refactoring.guru/design-patterns/factory-method/php/example)
+
+---
+## 9.Anonymous Classes
+
+Anonymous classes mostly behave just like normal classes. You can extend other classes, implement interfaces, use traits, etc. You can pass arguments to the class through its constructor. One of the use cases you’ll find as an example in the documentation is giving access to private or protected properties to a nested anonymous class.
+
+```php
+$anonymous = new Class{
+   public function introduce(){ 
+     echo "Hello from anonymous class";
+   }
+};
+$anonymous->introduce(); // Hello from anonymous class
+```
+[Reference](https://medium.com/@shahburhan/anonymous-classes-in-php-6eca8ed53063)
+
+
+---
+
+## 10.MVC Architecture
+The Model-View-Controller (MVC) framework is an architectural/design pattern that separates an application into three main logical components Model, View, and Controller. Each architectural component is built to handle specific development aspects of an application. It isolates the business logic and presentation layer from each other. It was traditionally used for desktop graphical user interfaces (GUIs). Nowadays, MVC is one of the most frequently used industry-standard web development frameworks to create scalable and extensible projects. It is also used for designing mobile apps.
+
+[Reference](https://www.geeksforgeeks.org/mvc-framework-introduction/)
+
+---
