@@ -46,3 +46,79 @@ Route::get('/', function () {
 [Reference](https://laravel.com/docs/12.x/facades)
 
 ---
+
+## 4-Blade Templates and how it works
+ ### Blade Templates
+   -Blade is the simple, yet powerful templating engine provided with Laravel. Unlike other popular PHP templating engines, Blade does not restrict you from using plain PHP code in your views. All Blade views are compiled into plain PHP code and cached until they are modified, meaning Blade adds essentially zero overhead to your application. Blade view files use the `.blade.php` file extension and are typically stored in the `resources/views` directory.
+
+ ### how it works
+
+ **Template Inheritance**
+
+  - Defining A Layout
+
+     Two of the primary benefits of using Blade are template inheritance and sections. To get started, let's take a look at a simple example. First, we will examine a "master" page layout. Since most web applications maintain the same general layout across various pages, it's convenient to define this layout as a single Blade view:
+ 
+  ```html
+  <!-- Stored in resources/views/layouts/master.blade.php -->
+
+        <html>
+            <head>
+                <title>App Name - @yield('title')</title>
+            </head>
+            <body>
+                @section('sidebar')
+                    This is the master sidebar.
+                @show
+
+                <div class="container">
+                    @yield('content')
+                </div>
+            </body>
+        </html>
+```
+   this file contains typical HTML mark-up. However, take note of the `@section` and `@yield` directives. The `@section` directive, as the name implies, defines a section of content, while the `@yield` directive is used to display the contents of a given section.
+
+  - Extending A Layout
+
+    When defining a child page, you may use the Blade `@extends` directive to specify which layout the child page should "inherit". Views which `@extends` a Blade layout may inject content into the layout's sections using `@section` directives. Remember, as seen in the example above, the contents of these sections will be displayed in the layout using `@yield`:
+  
+```php
+       <!-- Stored in resources/views/child.blade.php -->
+
+        @extends('layouts.master')
+
+        @section('title', 'Page Title')
+
+        @section('sidebar')
+            @@parent
+
+            <p>This is appended to the master sidebar.</p>
+        @endsection
+
+        @section('content')
+            <p>This is my body content.</p>
+        @endsection
+```
+[Reference](https://laravel.com/docs/5.1/blade#template-inheritance)
+
+---
+
+
+## 5-What is the ORM ,why it is so useful
+**What is ORM?**
+ - ORM is a communication tool between your project and the database. You can perform database connection and query operations using ORM in your project. Some of the common advantages of ORM include the ability to convert class properties to tables instead of creating tables on the database manually. Additionally, the general queries that come with ORM allow us to perform operations on the database without the need to write any database code.
+
+ - ORM first maps the entity properties to record them in a special format (like XML). It connects to the database with connection information (config file) and creates tables by querying with the information it has saved.  
+
+**why it is so useful**
+  
+  - The connection between ORM and the database is not dependent on what the database is, making it easier to switch to another database.
+  - ORM automation reduces the likelihood of errors in most database operations.
+  - Since ORM supports many programming languages, you can use the database you want in the programming language you want.
+  - ORM supports custom queries, so you can use your own queries with ORM.
+
+  [Reference](https://medium.com/@kadergenc/what-is-orm-why-is-it-used-what-are-its-pros-and-cons-3ed77c0e6ed2)
+
+  ---
+  
