@@ -195,23 +195,8 @@ Route::get('/', function () {
     ```
 
 - **Has Many Through**
-The **"has-many-through"** relationship provides a convenient shortcut for accessing distant relations via an intermediate relation. For example, a Country model might have many Post models through an intermediate User model. In this example, you could easily gather all blog posts for a given country. Let's look at the tables required to define this relationship:
-    ```php
-        countries
-            id - integer
-            name - string
-        
-        users
-            id - integer
-            country_id - integer
-            name - string
-        
-        posts
-            id - integer
-            user_id - integer
-            title - string  
-    ```
-
+The **"has-many-through"** relationship provides a convenient shortcut for accessing distant relations via an intermediate relation. For example, a Country model might have many Post models through an intermediate User model. In this example, you could easily gather all blog posts for a given country.
+  
 - **Polymorphic Relations**
   Table Structure Polymorphic relations allow a model to belong to more than one other model on a single association. For example, imagine users of your application can "comment" both posts and videos. Using polymorphic relationships, you can use a single comments table for both of these scenarios.  
 
