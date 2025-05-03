@@ -122,3 +122,135 @@ Route::get('/', function () {
 
   ---
   
+## 6-Defining relationships in Eloquent models
+
+  Database tables are often related to one another. For example, a blog post may have many comments, or an order could be related to the user who placed it. Eloquent makes managing and working with these relationships easy, and supports several different types of relationships:
+
+  - **One To One**
+
+       A **one-to-one** relationship is a very basic relation. For example, a User model might be associated with one Phone. To define this relationship, we place a phone method on the User model. The phone method should call the hasOne method and return its result:
+    ```php
+        <?php
+        
+        namespace App;
+        
+        use Illuminate\Database\Eloquent\Model;
+        
+        class User extends Model
+        {
+            /**
+            * Get the phone record associated with the user.
+            */
+            public function phone()
+            {
+                return $this->hasOne('App\Phone');
+            }
+        }
+    ```
+        
+   - **One To Many**
+
+     A **"one-to-many"** relationship is used to define relationships where a single model owns any amount of other models. For example, a blog post may have an infinite number of comments. Like all other Eloquent relationships, one-to-many relationships are defined by placing a function on your Eloquent model:
+        ```php
+        <?php
+        
+        namespace App;
+        
+        use Illuminate\Database\Eloquent\Model;
+        
+        class Post extends Model
+        {
+            /**
+            * Get the comments for the blog post.
+            */
+            public function comments()
+            {
+                return $this->hasMany('App\Comment');
+            }
+        }
+        ```
+   
+- **Many To Many**
+
+   **Many-to-many** relations are slightly more complicated than hasOne and hasMany relationships. An example of such a relationship is a user with many roles, where the roles are also shared by other users. For example, many users may have the role of "Admin". To define this relationship, three database tables are needed: users, roles, and role_user. The role_user table is derived from the alphabetical order of the related model names, and contains the user_id and role_id columns.
+
+   Many-to-many relationships are defined by writing a method that returns the result of the belongsToMany method. For example, let's define the roles method on our User model:
+   ```php
+    <?php
+    
+    namespace App;
+    
+    use Illuminate\Database\Eloquent\Model;
+    
+    class User extends Model
+    {
+        /**
+        * The roles that belong to the user.
+        */
+        public function roles()
+        {
+            return $this->belongsToMany('App\Role');
+        }
+    }
+    ```
+
+- **Has Many Through**
+The **"has-many-through"** relationship provides a convenient shortcut for accessing distant relations via an intermediate relation. For example, a Country model might have many Post models through an intermediate User model. In this example, you could easily gather all blog posts for a given country. Let's look at the tables required to define this relationship:
+    ```php
+        countries
+            id - integer
+            name - string
+        
+        users
+            id - integer
+            country_id - integer
+            name - string
+        
+        posts
+            id - integer
+            user_id - integer
+            title - string  
+    ```
+
+- **Polymorphic Relations**
+  Table Structure Polymorphic relations allow a model to belong to more than one other model on a single association. For example, imagine users of your application can "comment" both posts and videos. Using polymorphic relationships, you can use a single comments table for both of these scenarios.  
+
+[Reference](https://laravel.com/docs/5.5/eloquent-relationships#polymorphic-relations)
+
+---
+
+## 7-Attaching, syncing, detaching related records
+- **Attach a database**
+   
+   You can attach a copied or detached SQL Server database. When you attach a SQL Server 2005 (9.x) database that contains full-text catalog files onto a SQL Server server instance, the catalog files are attached from their previous location along with the other database files, the same as in SQL Server 2005 (9.x). For more information, see Upgrade Full-Text Search.
+
+   When you attach a database, all data files (.mdf and .ndf files) must be available. If any data file has a different path from when the database was first created or last attached, you must specify the current path of the file.
+
+- **Syncing a database**
+   
+   It’s a common problem in syncing offline data: You can easily sync your explicit changes, but how do you update affected related records? You can do it manually with enough knowledge, determination, and perspicacity, but that’s the old way.
+   
+- **Detach a database**
+
+   Detaching a database removes it from the instance of SQL Server but leaves the database intact within its data files and transaction log files. These files can then be used to attach the database to any instance of SQL Server, including the server from which the database was detached.
+
+[Reference](https://learn.microsoft.com/en-us/sql/relational-databases/databases/database-detach-and-attach-sql-server?view=sql-server-ver16)
+
+---
+
+## 8-The N+1 query problem in Laravel
+
+ The N+1 query problem occurs when an application makes one initial query to the database followed by an additional query for each result obtained from the first query. This typically happens in object-relational mapping (ORM) frameworks when dealing with relationships between models.
+
+ For instance, imagine a scenario in a Laravel application where you need to display all posts and their associated comments on a webpage. An intuitive approach might involve loading all posts first and then iterating through each post to load its related comments:
+```php
+$posts = Post::all();
+foreach ($posts as $post) {
+    $comments = $post->comments; // Additional query for each post
+}
+```
+In this example, if there are N posts, the first query retrieves all the posts, and then N additional queries are executed to fetch the comments for each post. Hence, for N posts, there will be N+1 queries to the database: 1 for retrieving all the posts and N for fetching the comments for each post.
+
+[Reference](https://loadforge.com/guides/optimizing-laravel-applications-by-detecting-n1-queries)
+
+---
