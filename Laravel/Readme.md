@@ -239,3 +239,74 @@ In this example, if there are N posts, the first query retrieves all the posts, 
 [Reference](https://loadforge.com/guides/optimizing-laravel-applications-by-detecting-n1-queries)
 
 ---
+
+## 9-What is the XSRF or CSRF ... is there a difference between them??
+  **CSRF** is a malicious activity that involves an attacker performing actions on behalf of an authenticated user. Fortunately, Laravel provides out-of-the-box measures to prevent this type of vulnerability.
+  
+  **CSRF** attacks user sessions. They do this by tricking a user into sending a request through hidden form tags or malicious URLs (images or links) without the user's knowledge.This attack leads to a change in the state of the user session, data leaks, and attackers can sometimes manipulate end-users data in an application.
+  - How to Prevent CSRF Requests
+
+    Each time there’s a request to modify user information on the server-side (back end) like `POST`, `PUT`, `PATCH`, and `DELETE`, you need to include a `@csrf` in the HTML form request. The `@csrf` is thus a Blade directive used to generate a hidden token validated by the application.
+
+    [Reference](https://www.freecodecamp.org/news/laravel-web-security-csrf/)
+
+    ### Difference Between Them
+    **csrf** :
+      - Is used in html forms (not ajax)
+      - Produced in backend while rendering html form.
+      - we can not set request header in html forms directly, so an easy way is to send it via form input as a hidden field.
+      - you can name this hidden input whatever you want. e.g. <input name="my_csrf_input" value="a_hashed_string_the_csrf_value"
+
+    **x-csrf-token**:
+      - is added to the request header for ajax requests.
+      - To use it, we can put the csrf value in a meta tag while rendering the html, then in front end we can get the value from that meta tag and send it to backend.
+      - Laravel specific: When using laravel as backend. Laravel checks this header automatically and compares it to the valid csrf value in database.(laravel has a middleware for this)
+
+[Reference](https://stackoverflow.com/questions/42408177/what-is-the-difference-between-x-xsrf-token-and-x-csrf-token)
+
+---
+
+## 10-What is Livewire?
+  **Livewire** is a full-stack framework for Laravel that makes building dynamic interfaces simple, without leaving the comfort of Laravel.It allows us to write highly interactive web apps with PHP, Laravel, and Blade. No more bending the knee to a client-side JavaScript framework. Livewire got your back! Livewire let you create the interactivity of an SPA without having to learn yet-another frontend framework.
+  - How the he*k does this work?
+    - Livewire renders the initial component output with the page (like a Blade include). This way, it's SEO friendly.
+    - When an interaction occurs, Livewire makes an AJAX request to the server with the updated data.
+    - The server re-renders the component and responds with the new HTML.
+    - Livewire then intelligently mutates DOM according to the things that changed.
+
+[Reference](https://laravel-livewire.com/)
+
+---
+
+## 11-Give examples and explain them in 3 lines at least about 5 packages that are most use
+ 1. **Laravel Debugbar**
+
+    These development packages help you streamline your development workflow with tools for debugging, asset compilation, and code generation.
+
+2. **Laravel User Verification**
+
+   **The Laravel User Verification package** simplifies user onboarding by handling email verification and validation. It offers flexibility to customize email templates, verification logic, and the user experience to perfectly fit your application’s needs.
+
+   Plus, the package integrates seamlessly with Laravel’s authentication and notification systems, saving you development time and effort.
+
+3. **Eloquent-Sluggable**
+
+   Tired of manually crafting SEO-friendly URLs? *Laravel Eloquent-Sluggable* automates the process! This handy tool generates unique slugs based on your model attributes, creating clean and search-engine-friendly URLs for your Laravel application.
+ 
+   Eloquent-Sluggable offers customization options for slug fields, separators, and update behavior. Plus, it provides hooks for handling special cases and integrating your own logic, ensuring your URLs are always optimized.
+
+4. **Migrations Generator**
+
+   Struggling with manual database migration creation in Laravel? **The Laravel Migrations Generator package** is here to help! This time-saving tool analyzes your existing database schema and automatically generates migration files.
+
+   Focus on building your application logic, not writing migrations. Simply run the provided command to generate migrations for all your database tables at once. Let Laravel Migrations Generator handle the heavy lifting!
+
+5. **Laravel Backup**
+
+   Don’t risk losing valuable data! **The Laravel Backup package** safeguards your application by creating backups. It zips up your chosen directories and database, ensuring a complete snapshot of your project.
+
+   You can create a complete snapshot of your project with a single command, including files and database. This simplifies the backup process and keeps your application safe and secure.
+
+[Reference](https://www.cloudways.com/blog/best-laravel-packages/)
+
+---
