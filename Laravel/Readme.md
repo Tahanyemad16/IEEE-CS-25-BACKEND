@@ -268,7 +268,7 @@ In this example, if there are N posts, the first query retrieves all the posts, 
 
 ## 10-What is Livewire?
   **Livewire** is a full-stack framework for Laravel that makes building dynamic interfaces simple, without leaving the comfort of Laravel.It allows us to write highly interactive web apps with PHP, Laravel, and Blade. No more bending the knee to a client-side JavaScript framework. Livewire got your back! Livewire let you create the interactivity of an SPA without having to learn yet-another frontend framework.
-  - How the he*k does this work?
+  - How we do this work?
     - Livewire renders the initial component output with the page (like a Blade include). This way, it's SEO friendly.
     - When an interaction occurs, Livewire makes an AJAX request to the server with the updated data.
     - The server re-renders the component and responds with the new HTML.
@@ -310,3 +310,64 @@ In this example, if there are N posts, the first query retrieves all the posts, 
 [Reference](https://www.cloudways.com/blog/best-laravel-packages/)
 
 ---
+
+## 12-Laravel Gates
+
+ - **Laravel Gates** are a way to manage authorization in Laravel. Gates are closures that decide whether or not a user is allowed to perform a given action and are typically defined in the app/providers/AuthServiceProvider class using the Gate facade, which provides methods for defining and checking Gates. For example, you could create a Gate that only allows users with administrative privileges to access certain pages or features of your application.
+
+ - How to Define a Laravel Gate
+  
+    To define a Gate in Laravel, we use the Gate::define() method. This method takes two arguments, the name of the gate, and a callback function that defines the Gate's logic. The callback function should return a boolean value indicating whether the user is authorized to access the resource.
+
+For example, we can define a Gate that checks if the user is an administrator as follows:
+
+```php
+use Illuminate\Support\Facades\Gate;
+
+Gate::define('admin', function ($user) {
+    return $user->isAdmin();
+});
+```
+[Reference](https://www.twilio.com/en-us/blog/rapid-introduction-laravel-gates)
+
+---
+
+## 13-Sanctum vs Passport
+
+- **Laravel Sanctum**
+  - **Laravel Sanctum** introduced in Laravel 7, is a simple authentication package designed primarily for single-page applications (SPAs), mobile applications, and token-based APIs. It offers a lightweight solution that focuses on the personal access token and cookie-based session authentication.
+
+- **Laravel Passport** 
+  - **Laravel Passport** is an OAuth2 server implementation that offers more advanced API authentication than Sanctum. Passport was created to provide an OAuth2 server for Laravel applications, making it an ideal choice for apps requiring third-party access, token revocation, refresh tokens, and more advanced authentication flows.
+
+  [Reference](https://medium.com/@chirag.dave/laravel-sanctum-vs-passport-choosing-the-right-authentication-for-your-app-4438c85bf900)
+
+  ---
+
+ ## 14-Guard vs middleware
+  **Guards**:
+  
+  -  Guards in Laravel define how users are authenticated in  your application. They determine where the application should look for user credentials and how to verify them. Laravel provides multiple guard drivers out of the box, such as `web` (for browser sessions) and `api` (for API token authentication).
+
+  - How to Implement Guards:
+   
+    You can configure guards in the config/auth.php file. For example, the "web" guard might be configured to use session-based authentication, while the "api" guard could use token-based authentication.
+
+    ```php
+    'guards' => [
+    'web' => [
+        'driver' => 'session',
+        'provider' => 'users',
+    ],
+    ],
+    ```
+    [Reference](https://sagardhiman021.medium.com/laravel-guards-gates-and-policies-understanding-implementation-and-key-differences-5d56186603c7)
+
+  **Middleware**
+   - Middleware provide a convenient mechanism for inspecting  and filtering HTTP requests entering your application. For example, Laravel includes a middleware that verifies the user of your application is authenticated. If the user is not authenticated, the middleware will redirect the user to your application's login screen. However, if the user is authenticated, the middleware will allow the request to proceed further into the application.
+
+
+ [Reference](https://laravel.com/docs/12.x/middleware)
+
+
+  ---
